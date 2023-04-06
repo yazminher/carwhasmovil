@@ -6,13 +6,103 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <Button
+        android:id="@+id/btnCotizacion"
+        android:layout_width="130dp"
+        android:layout_height="43dp"
+        android:background="@drawable/btn_uno"
+        android:text="Cotizacion"
+        android:textColor="@drawable/txt_btn_uno"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.202"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.212" />
+
+    <Button
+        android:id="@+id/btnVehiculos"
+        android:layout_width="130dp"
+        android:layout_height="43dp"
+        android:autoText="true"
+        android:background="@drawable/btn_uno"
+        android:text="Vehiculos"
+        android:textColor="@drawable/txt_btn_uno"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.212" />
+
+    <Button
+        android:id="@+id/btnLavados"
+        android:layout_width="160dp"
+        android:layout_height="43dp"
+        android:background="@drawable/btn_uno"
+        android:text="Lavados"
+        android:textColor="@drawable/txt_btn_uno"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.454" />
+
+    <Button
+        android:id="@+id/btnAceite"
+        android:layout_width="139dp"
+        android:layout_height="56dp"
+        android:background="@drawable/btn_uno"
+        android:text="Cambios de Aceite"
+        android:textColor="@drawable/txt_btn_uno"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.334" />
+
+    <Button
+        android:id="@+id/btnPerfil"
+        android:layout_width="169dp"
+        android:layout_height="61dp"
+        android:background="@drawable/btn_uno"
+        android:text="Perfil de Usuario"
+        android:textColor="@drawable/txt_btn_uno"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.085" />
+
+    <Button
+        android:id="@+id/tabCerrarSesion"
+        android:layout_width="160dp"
+        android:layout_height="43dp"
+        android:background="@drawable/btn_uno"
+        android:text="Cerrar Sesion"
+        android:textColor="@drawable/txt_btn_uno"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.569" />
+
+    <Button
+        android:id="@+id/btnAgregarVehiculo"
+        android:layout_width="130dp"
+        android:layout_height="57dp"
+        android:background="@drawable/btn_uno"
+        android:text="Agregar Vehiculo"
+        android:textColor="@drawable/txt_btn_uno"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.335" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
