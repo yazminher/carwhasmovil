@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">carwhasmovil</string>
+    <string name="invalid_mail">Ingrese un correo válido</string>
+    <string name="invalid_password">Ingrese una contraseña mayor a 6 digitos</string>
+</resources>

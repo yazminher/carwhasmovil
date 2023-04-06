@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "234632380847",
+    "project_id": "carwhasmovil-b7ac4",
+    "storage_bucket": "carwhasmovil-b7ac4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234632380847:android:983581c6b32d5ce57aaf5a",
+        "android_client_info": {
+          "package_name": "com.example.carwhasmovil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234632380847-hb32ev527d02n78higvr2mqsipu6tra0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ5fDt3IP2vKgnAeknAetJp-x4BvUHchM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234632380847-hb32ev527d02n78higvr2mqsipu6tra0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
