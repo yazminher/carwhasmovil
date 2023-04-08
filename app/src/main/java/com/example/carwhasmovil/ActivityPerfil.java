@@ -3,6 +3,7 @@ package com.example.carwhasmovil;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -55,7 +56,6 @@ import java.util.Locale;
 import java.util.Map;
 
 public class ActivityPerfil extends AppCompatActivity {
-
     EditText ttnombre,ttapellidos, ttemail,tttelefono, ttpais;
     private FirebaseAuth mAuth;
     ImageView img;
@@ -83,43 +83,34 @@ public class ActivityPerfil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
-        ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
+        View view = null;
         if (networkInfo != null && networkInfo.isConnected()) {
 
-            ttnombre = (EditText) view.findViewById(R.id.ttnombre);
-            ttpais = (EditText) view.findViewById(R.id.ttpais);
-            ttapellidos = (EditText) view.findViewById(R.id.ttapelllidos);
-            tttelefono = (EditText) view.findViewById(R.id.tttelefono);
-            ttemail = (EditText) view.findViewById(R.id.ttemail);
+            ttnombre = (EditText) findViewById(R.id.ttnombre);
+            ttpais = (EditText) findViewById(R.id.ttpais);
+            ttapellidos = (EditText) findViewById(R.id.ttapelllidos);
+            tttelefono = (EditText) findViewById(R.id.tttelefono);
+            ttemail = (EditText) findViewById(R.id.ttemail);
 
-            img = (ImageView) view.findViewById(R.id.img);
+            img = (ImageView) findViewById(R.id.img);
 
-            btn_camara = (ImageButton) view.findViewById(R.id.btn_camara);
-            btnAgg = (Button) view.findViewById(R.id.btnAgg);
+            btn_camara = (ImageButton) findViewById(R.id.btn_camara);
+            btnAgg = (Button) findViewById(R.id.btnAgg);
 
-
-            rq = Volley.newRequestQueue(getContext());
+            rq = Volley.newRequestQueue(getApplicationContext());
 
             ttpais.setEnabled(false);
             ttemail.setEnabled(false);
 
-
-
-
-
-
             btn_camara.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     permisos();
-
-
                 }
             });
-
 
             btnAgg.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -130,16 +121,16 @@ public class ActivityPerfil extends AppCompatActivity {
                 }
             });
 
-
             GetUser();  ///cargar usuario
 
 
-        }else{
-            Toast.makeText(getApplication(),"Sin conexion a internet",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplication(), "Sin conexion a internet", Toast.LENGTH_SHORT).show();
+            view = findViewById(R.id.view);
             view.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    switch (event.getAction()){
+                    switch (event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
                             AlertDialog.Builder builder = new AlertDialog.Builder(getApplication());
                             builder.setMessage("Se encuentra fuera de linea, verifique su conexion a internet y vuelva a intentar.");
@@ -151,7 +142,7 @@ public class ActivityPerfil extends AppCompatActivity {
                                 }
                             });
                             // Create the AlertDialog object and return it
-                            AlertDialog titulo =builder.create();
+                            AlertDialog titulo = builder.create();
                             titulo.show();
 
                             break;
@@ -161,8 +152,7 @@ public class ActivityPerfil extends AppCompatActivity {
             });
         }
 
-        return view;
-
+        // return view;
     }
 
     // VALIDAR CAJAS DE TEXTO
@@ -245,12 +235,12 @@ public class ActivityPerfil extends AppCompatActivity {
 
     // PETICION PERMISOS DE LA GALERIA Y ACCESO A CAMARA
     private void permisos() {
-        if(ContextCompat.checkSelfPermission(getApplication(), Manifest.permission.CAMERA) !=
+        if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) !=
                 PackageManager.PERMISSION_GRANTED  &&
-                ContextCompat.checkSelfPermission(getApplication(), Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
+                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
                         PackageManager.PERMISSION_GRANTED)
         {
-            ActivityCompat.requestPermissions(getApplication(), new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     PETICION_ACCESO_CAMARA);
         }
         else
@@ -274,34 +264,60 @@ public class ActivityPerfil extends AppCompatActivity {
             }
         }
         else {
-            Toast.makeText(getApplication(), "Se necesitan permisos de acceso", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Se necesitan permisos de acceso", Toast.LENGTH_LONG).show();
         }
     }
 
     // CAPTURAR FOTOGRAFIA DE LA CAMARA
+/*    private void dispatchTakePictureIntent1() {
+        Intent takePictureIntent1 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent1.resolveActivity(getApplicationContext().getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent1, REQUEST_IMAGE_CAPTURE);
+        }
+    }*/
+
     private void dispatchTakePictureIntent1() {
         Intent takePictureIntent1 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent1.resolveActivity(getApplication().getPackageManager()) != null) {
+        if (takePictureIntent1.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent1, REQUEST_IMAGE_CAPTURE);
         }
     }
 
+
     // CAPTURAR RESULTADO FOTOGRAFIA DE LA CAMARA Y GALERIA
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+/*    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode,resultCode,data);
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == getActivity().RESULT_OK) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             img.setImageBitmap(imageBitmap);
         }
-
-        else if (resultCode == getActivity().RESULT_OK) {
+        else if (resultCode == Activity.RESULT_OK) {
             Uri path=data.getData();
             img.setImageURI(path);
-
         }
+    }*/
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode,resultCode,data);
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+            Bundle extras = data.getExtras();
+            if (extras != null) {
+                Bitmap imageBitmap = (Bitmap) extras.get("data");
+                if (imageBitmap != null) {
+                    img.setImageBitmap(imageBitmap);
+                } else {
+                    // Handle the case where the bitmap is null
+                }
+            } else {
+                // Handle the case where the extras bundle is null
+            }
+        } else if (resultCode == Activity.RESULT_OK) {
+            Uri path = data.getData();
+            img.setImageURI(path);
+        }
     }
+
 
     //METODO ACTUALIZAR DATOS DEL USUARIO
     private void actualizar(){
