@@ -4,9 +4,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/logincarro"
     tools:context=".ActivityLogin">
 
+
+    <EditText
+        android:id="@+id/txtCorreo"
+        android:layout_width="255dp"
+        android:layout_height="45dp"
+        android:background="@drawable/btn_negro"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintVertical_bias="0.004" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="229dp"
+        android:layout_height="22dp"
+        android:fontFamily="@font/roboto"
+        android:text="CORREO ELECTRÓNICO:"
+        android:textColor="#32B7FF"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:layout_constraintVertical_bias="0.159" />
+
+    <EditText
+        android:id="@+id/txtContrasenia"
+        android:layout_width="254dp"
+        android:layout_height="46dp"
+        android:background="@drawable/btn_negro"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <TextView
+        android:id="@+id/txtRecuperar"
+        android:layout_width="177dp"
+        android:layout_height="28dp"
+        android:text="¿Olvidaste tu contraseña?"
+        android:textAlignment="center"
+        android:textColor="#32B7FF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintVertical_bias="0.268" />
+
+    <TextView
+        android:id="@+id/txtRegistrarse"
+        android:layout_width="115dp"
+        android:layout_height="26dp"
+        android:text="Registrarse"
+        android:textAlignment="center"
+        android:textColor="#32B7FF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintVertical_bias="0.574" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="174dp"
+        android:layout_height="23dp"
+        android:fontFamily="@font/roboto"
+        android:text="CONTRASEÑA:"
+        android:textColor="#32B7FF"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCorreo"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="180dp"
+        android:layout_height="52dp"
+        android:backgroundTint="#32B7FF"
+        android:text="INICIAR SESION"
+        android:textSize="20sp"
+        app:cornerRadius="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtContrasenia"
+        app:layout_constraintVertical_bias="0.228" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="198dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_principal" />
 
     <TextView
         android:id="@+id/textView12"
@@ -17,100 +127,5 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="115dp" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="229dp"
-        android:layout_height="22dp"
-        android:text="CORREO ELECTRÓNICO:"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.412"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:layout_constraintVertical_bias="0.124" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="172dp"
-        android:layout_height="36dp"
-        android:text="CONTRASEÑA:"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.313"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCorreo"
-        app:layout_constraintVertical_bias="0.134" />
-
-    <EditText
-        android:id="@+id/txtCorreo"
-        android:layout_width="255dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:hint="ejemplo@gmail.com"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:layout_constraintVertical_bias="0.036" />
-
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="180dp"
-        android:layout_height="52dp"
-        android:backgroundTint="#38b6ff"
-        android:text="INICIAR SESION"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtContrasenia"
-        app:layout_constraintVertical_bias="0.469" />
-
-    <TextView
-        android:id="@+id/txtRegistrarse"
-        android:layout_width="115dp"
-        android:layout_height="26dp"
-        android:text="Registrarse"
-        android:textColor="#5271FF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.945"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        app:layout_constraintVertical_bias="0.376" />
-
-    <TextView
-        android:id="@+id/txtRecuperar"
-        android:layout_width="177dp"
-        android:layout_height="28dp"
-        android:text="¿Olvidaste tu contraseña?"
-        android:textColor="#5271FF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.136"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        app:layout_constraintVertical_bias="0.382" />
-
-    <EditText
-        android:id="@+id/txtContrasenia"
-        android:layout_width="254dp"
-        android:layout_height="46dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -242,32 +242,48 @@ public class ActivityCotizacion extends AppCompatActivity {
                     mes = c.get(Calendar.MONTH);
                     anio = c.get(Calendar.YEAR);
 
-                    DatePickerDialog datePickerDialog = new DatePickerDialog(getApplicationContext(), new DatePickerDialog.OnDateSetListener() {
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(ActivityCotizacion.this, new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
-                            txtFecha.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
+                            // Crear una instancia de Calendar con la fecha seleccionada
+                            Calendar selectedDate = Calendar.getInstance();
+                            selectedDate.set(year, monthOfYear, dayOfMonth);
+
+                            // Validar que la fecha seleccionada sea posterior o igual a la fecha actual
+                            if (selectedDate.getTimeInMillis() >= Calendar.getInstance().getTimeInMillis()) {
+                                txtFecha.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
+                            } else {
+                                Toast.makeText(ActivityCotizacion.this, "Seleccione una fecha posterior o igual a la fecha actual", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    },anio,mes,dia);
+                    }, anio, mes, dia);
+
                     datePickerDialog.show();
                 }
             });
+
 
             btnHora.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     final Calendar c = Calendar.getInstance();
-                    hora = c.get(Calendar.HOUR_OF_DAY);
-                    minutos = c.get(Calendar.MINUTE);
+                    hora = 8; // Hora inicial permitida
+                    minutos = 0; // Minutos iniciales permitidos
 
-                    TimePickerDialog timePickerDialog = new TimePickerDialog(getApplicationContext(), new TimePickerDialog.OnTimeSetListener() {
+                    TimePickerDialog timePickerDialog = new TimePickerDialog(ActivityCotizacion.this, new TimePickerDialog.OnTimeSetListener() {
                         @Override
                         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                            txtHora.setText(hourOfDay+":"+minute);
+                            if (hourOfDay < 8 || hourOfDay > 15) { // Verifica que la hora esté dentro del rango permitido
+                                Toast.makeText(ActivityCotizacion.this, "Solo se permiten horarios entre las 8:00 am y las 3:00 pm", Toast.LENGTH_SHORT).show();
+                            } else {
+                                txtHora.setText(hourOfDay + ":" + minute);
+                            }
                         }
-                    }, hora,minutos,false);
+                    }, hora, minutos, false);
                     timePickerDialog.show();
                 }
             });
+
 
             btnGuardar.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -290,7 +306,7 @@ public class ActivityCotizacion extends AppCompatActivity {
                             builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    getApplicationContext().finish();
+                                    getApplicationContext();
                                 }
                             });
                             // Create the AlertDialog object and return it
@@ -388,7 +404,7 @@ public class ActivityCotizacion extends AppCompatActivity {
                 lista.add(m);
             }
 
-            adp = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_dropdown_item, lista);
+            adp = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, lista);
             sp_vehiculos.setAdapter(adp);
 
             sp_vehiculos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -481,7 +497,7 @@ public class ActivityCotizacion extends AppCompatActivity {
 
     // PEDIR PERMISOS PARA LA UBICACION
     public void Permisos(){
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
         } else {
             locationStart();
@@ -499,7 +515,7 @@ public class ActivityCotizacion extends AppCompatActivity {
             Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
             startActivity(settingsIntent);
         }
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
             return;
         }
@@ -539,14 +555,10 @@ public class ActivityCotizacion extends AppCompatActivity {
 
     // OBTENER LONGITUD Y LATITUD
     public class Localizacion implements LocationListener {
-        cotizacion_Fragment cotizacionFragment;
+        ActivityCotizacion mainActivity;
 
-        public cotizacion_Fragment getCotizacionFragment() {
-            return cotizacionFragment;
-        }
-
-        public void setCotizacionFragment(cotizacion_Fragment cotizacionFragment) {
-            this.cotizacionFragment = cotizacionFragment;
+        public void setMainActivity(ActivityCotizacion mainActivity){
+            this.mainActivity = mainActivity;
         }
 
         @Override
@@ -557,7 +569,7 @@ public class ActivityCotizacion extends AppCompatActivity {
 
             Latitud =  ""+loc.getLatitude();
             Longitud =  ""+loc.getLongitude();
-            this.cotizacionFragment.setLocation(loc);
+            this.mainActivity.setLocation(loc);
 
         }
     }
@@ -644,7 +656,7 @@ public class ActivityCotizacion extends AppCompatActivity {
         }
 
         builder.setAutoCancel(true).setWhen(System.currentTimeMillis())
-                .setContentTitle("Cotización de Servicio").setSmallIcon(R.mipmap.ic_launcher_foreground)
+                .setContentTitle("Cotización de Servicio").setSmallIcon(R.mipmap.ic_launcher)
                 .setContentText("Su cotización ha sido aprobada con exito.")
                 .setColor(Color.BLUE)
                 .setContentIntent(sendNotification())
@@ -652,8 +664,7 @@ public class ActivityCotizacion extends AppCompatActivity {
         Random random = new Random();
         int id_notification = random.nextInt(8000);
 
-        assert notificationManager != null;
-        notificationManager.notify(id_notification,builder.build());
+        assert notificationManager != null; notificationManager.notify(id_notification,builder.build());
     }
 
     public PendingIntent sendNotification(){
