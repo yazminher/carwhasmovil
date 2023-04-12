@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/pastela"
     tools:context=".ActivityHistorialAceite">
 
     <TextView
@@ -15,7 +16,7 @@
         android:gravity="center"
         android:text="Historial de Cambios de Aceite"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/teal_200"
+        android:textColor="@color/botones"
         android:textSize="22sp" />
 
     <androidx.recyclerview.widget.RecyclerView

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityCotizacion"
-    android:background="@drawable/fondoglenda">
+    android:background="@drawable/pastela"
+    tools:context=".ActivityCotizacion">
 
     <TextView
         android:id="@+id/textView2"
@@ -26,12 +26,13 @@
         android:id="@+id/sp_ubicacion"
         android:layout_width="245dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="280dp"
+        android:layout_marginBottom="296dp"
+        android:background="@drawable/btn_azul"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.397"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUbicacion" />
 
     <TextView
         android:id="@+id/textView3"
@@ -51,6 +52,7 @@
         android:id="@+id/sp_vehiculos"
         android:layout_width="245dp"
         android:layout_height="48dp"
+        android:background="@drawable/btn_azul"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.397"
@@ -76,6 +78,7 @@
         android:id="@+id/sp_servicios"
         android:layout_width="245dp"
         android:layout_height="48dp"
+        android:background="@drawable/btn_azul"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.397"
@@ -92,15 +95,16 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.279"
+        app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sp_servicios"
-        app:layout_constraintVertical_bias="0.061" />
+        app:layout_constraintVertical_bias="0.033" />
 
     <EditText
         android:id="@+id/txtFecha"
         android:layout_width="133dp"
         android:layout_height="45dp"
+        android:background="@drawable/btn_azul"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -108,12 +112,13 @@
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sp_ubicacion"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintVertical_bias="0.127" />
 
     <EditText
         android:id="@+id/txtHora"
         android:layout_width="134dp"
         android:layout_height="45dp"
+        android:background="@drawable/btn_azul"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -139,8 +144,8 @@
 
     <ImageButton
         android:id="@+id/btnHora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="44dp"
         android:background="@drawable/pantlla"
         android:backgroundTint="#ffffff"
         android:src="@drawable/clock"
@@ -174,10 +179,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.689" />
+        app:layout_constraintVertical_bias="0.678" />
 
     <TextView
         android:id="@+id/textView10"
@@ -188,8 +193,8 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.808" />
+        app:layout_constraintVertical_bias="0.778" />
 </androidx.constraintlayout.widget.ConstraintLayout>

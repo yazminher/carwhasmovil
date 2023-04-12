@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/neutro"
+    android:background="@drawable/pastela"
     tools:context=".ActivityCrearVehiculo">
+
     <TextView
         android:id="@+id/textView21"
         android:layout_width="265dp"
         android:layout_height="35dp"
         android:text="REGISTRAR VEHICULO"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="#32B7FF"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,19 +27,20 @@
         android:layout_width="129dp"
         android:layout_height="35dp"
         android:text="MARCA/MODELO"
-        android:textColor="@color/black"
+        android:textColor="#32B7FF"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintHorizontal_bias="0.205"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.168" />
 
     <Spinner
         android:id="@+id/sp_model"
-        android:layout_width="264dp"
-        android:layout_height="44dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_azul"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.355"
@@ -48,58 +50,61 @@
 
     <Spinner
         android:id="@+id/sp_anio"
-        android:layout_width="210dp"
-        android:layout_height="48dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_azul"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.243"
+        app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView29"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Spinner
-        android:id="@+id/sp_taceite"
-        android:layout_width="210dp"
-        android:layout_height="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.243"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.002" />
 
     <TextView
         android:id="@+id/textView29"
         android:layout_width="129dp"
         android:layout_height="35dp"
         android:text="AÑO"
-        android:textColor="@color/black"
+        android:textColor="#32B7FF"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintHorizontal_bias="0.205"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sp_model"
-        app:layout_constraintVertical_bias="0.143" />
+        app:layout_constraintVertical_bias="0.072" />
+
+    <Spinner
+        android:id="@+id/sp_taceite"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_azul"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="129dp"
         android:layout_height="35dp"
         android:text="TIPO DE ACEITE"
+        android:textColor="#32B7FF"
         android:textSize="15dp"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintHorizontal_bias="0.205"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sp_anio"
-        app:layout_constraintVertical_bias="0.154" />
+        app:layout_constraintVertical_bias="0.112" />
 
     <Button
         android:id="@+id/btnAgg"
         android:layout_width="180dp"
         android:layout_height="52dp"
+        android:background="@drawable/btn_azul"
         android:backgroundTint="@color/botones"
         android:text="GUARDAR"
         app:cornerRadius="15dp"
@@ -108,7 +113,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.839" />
+        app:layout_constraintVertical_bias="0.714" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
